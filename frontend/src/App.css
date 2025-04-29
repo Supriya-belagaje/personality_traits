@@ -1,34 +1,24 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -36,80 +26,17 @@
     transform: rotate(360deg);
   }
 }
-.analysis-section {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
 
-.analysis-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.analysis-header h2 {
-  font-size: 1.75rem;
-  font-weight: bold;
-}
-
-.tab-buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  border-bottom: 2px solid #e5e7eb;
-  margin-bottom: 1.5rem;
-}
-
-.tab-buttons button {
-  padding: 0.75rem 1.75rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px 8px 0 0;
-  background: linear-gradient(to right, #f0f4ff, #e0ecff);
-  color: #4b5563;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-.tab-buttons button:hover {
-  background: linear-gradient(to right, #e0ecff, #d0e0ff);
-  color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.tab-buttons .active {
-  background: linear-gradient(to right, #dbeafe, #bfdbfe);
-  color: #1d4ed8;
-  border-bottom: 3px solid #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.layout-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .layout-container {
-    flex-direction: row;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
   }
 }
 
-.trait-cards {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
+.card {
+  padding: 2em;
 }
 
-.chart-container {
-  flex: 1;
+.read-the-docs {
+  color: #888;
 }
