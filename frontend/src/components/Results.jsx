@@ -59,46 +59,46 @@ export default function Results({ scores }) {
   };
 
   return (
-    <section className="bg-white rounded-md shadow-md p-8 mb-8">
-      <div className="flex justify-between items-center mb-6">
+<section className="bg-white rounded-md shadow-md p-8 mb-8 w-full">
+<div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Analysis Results</h2>
       </div>
 
       {/* Tabs */}
-     <div className="flex border-b mb-6 space-x-4">
-  <button
-    className={`px-6 py-2 font-semibold rounded-t-md transition-all duration-300 ${
-      activeTab === "ocean"
-        ? "bg-blue-100 text-blue-600 border-b-4 border-blue-500"
-        : "text-gray-500 hover:text-blue-500 hover:bg-gray-100"
-    }`}
-    onClick={() => setActiveTab("ocean")}
-  >
-    OCEAN Model
-  </button>
-  <button
-    className={`px-6 py-2 font-semibold rounded-t-md transition-all duration-300 ${
-      activeTab === "disc"
-        ? "bg-blue-100 text-blue-600 border-b-4 border-blue-500"
-        : "text-gray-500 hover:text-blue-500 hover:bg-gray-100"
-    }`}
-    onClick={() => setActiveTab("disc")}
-  >
-    DISC Model
-  </button>
-</div>
+        <div className="flex gap-4 mb-6">
+          <button
+            className={`px-6 py-2 font-semibold rounded-t-md transition-all duration-300 ${
+              activeTab === "ocean"
+                ? "bg-blue-100 text-blue-600 border-b-2 border-blue-500"
+                : "text-gray-500 hover:text-blue-500 hover:bg-gray-100"
+            }`}
+            onClick={() => setActiveTab("ocean")}
+          >
+            OCEAN Model
+          </button>
+          <button
+            className={`px-6 py-2 font-semibold rounded-t-md transition-all duration-300 ${
+              activeTab === "disc"
+                ? "bg-blue-100 text-blue-600 border-b-2 border-blue-500"
+                : "text-gray-500 hover:text-blue-500 hover:bg-gray-100"
+            }`}
+            onClick={() => setActiveTab("disc")}
+          >
+            DISC Model
+          </button>
+        </div>
 
 
       {/* Side-by-side Layout */}
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col gap-6">
         {/* Trait Cards - Left */}
-        <div className="flex-1 grid sm:grid-cols-2 md:grid-cols-1 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-4">
           {traitList.map((trait) => (
             <TraitCard key={trait.name} name={trait.name} score={trait.score} />
           ))}
         </div>
 
-        {/* Chart - Right */}
+        {/* Chart - Below */}
         <div className="flex-1">
           <Bar data={chartData} options={chartOptions} />
         </div>

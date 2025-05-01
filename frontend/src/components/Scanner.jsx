@@ -35,7 +35,8 @@ export default function Scanner({ onResult }) {
     <section
      className="bg-white rounded-md shadow-md p-8 mb-8">
       <div className="mb-4">
-        <h2 className="text-2xl font-bold mb-2">Personality Scanner</h2>
+      <h2 className="text-3xl font-semibold text-gray-800 flex items-center justify-center gap-2">
+      <span role="img" aria-label="brain">🧠</span> Personality Scanner</h2>
       </div>
       <textarea
         className="w-full min-h-[200px] p-4 border border-gray-300 rounded-md resize-vertical focus:outline-none focus:ring-2 focus:ring-blue-400"
