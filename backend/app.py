@@ -20,21 +20,39 @@ english_vocab = set(words.words())
 
 # Input validation function
 def is_valid_text(text):
-    # Require at least 3 words
+    # Strip extra spaces and split text into words
     words_list = text.strip().split()
+    print(f"Words List: {words_list}")  # Log words to inspect them
+
+    # Ensure the text has at least 3 words
     if len(words_list) < 3:
+        print("Text has less than 3 words.")  # Log specific validation failure
         return False
 
-    # Basic character check
-    if not re.match(r"^[a-zA-Z0-9\s.,!?;:'\"()-]+$", text):
+    # Remove punctuation from the end of words and check that only valid characters are present
+    words_list = [re.sub(r'[^\w\s.,!?;:\'\"()-]', '', word) for word in words_list]
+
+    # Basic character check for valid alphanumeric characters and allowed punctuation
+    if not all(re.match(r"^[a-zA-Z0-9\s.,!?;:'\"()-]+$", word) for word in words_list):
+        print("Text contains invalid characters.")  # Log specific validation failure
         return False
 
-    # Word validity check: at least 30% should be English words
+    # Check that at least 30% of words are valid English words
     valid_words = [word.lower() for word in words_list if word.lower() in english_vocab]
+    print(f"Valid Words: {valid_words}")  # Log valid words to inspect them
+
+    # Ensure at least 30% of words are valid English words
     if len(valid_words) / len(words_list) < 0.3:
+        print("Text has less than 30% valid English words.")  # Log specific validation failure
+        return False
+
+    # Additional check for sentence structure (optional)
+    if not any(word.istitle() for word in words_list):
+        print("Text does not contain any capitalized words.")  # Log specific validation failure
         return False
 
     return True
+
 
 @app.route('/')
 def home():
